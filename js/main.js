@@ -14,6 +14,48 @@ $(document).ready(function(){
     });
 
 
+    if($(window).innerWidth() < 768){
+        $('.main_services_list').slick({
+            slidesToShow:1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false,
+            infinite: false,
+            //fade: true,
+        });
+    }
+
+
+    $('.main_catalog_list').slick({
+        slidesToShow:1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        infinite: false,
+        speed: 1500,
+        //centerMode: true,
+        //focusOnSelect: true,
+        //centerPadding: "20%"
+        fade: true,
+    });
+
+
+
+    $('.how_doing_slider').slick({
+        slidesToShow:1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        infinite: false,
+        speed: 1500,
+        //centerMode: true,
+        //focusOnSelect: true,
+        //centerPadding: "20%"
+        fade: true,
+    });
+
+
+
 /*
     $('.slider_txt').mousewheel(function(e) {
         e.preventDefault();
