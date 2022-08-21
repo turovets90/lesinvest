@@ -1564,9 +1564,13 @@ footer
   &.last
     margin-bottom: 5px
 
+  &.sectificates_row
+    @media (max-width: 767px)
+      margin-bottom: 25px
+
   .col_left
     width: 42%
-    @media (max-width: 991px)
+    @media (min-width: 992px)
       padding-left: 10px
       padding-right: 10px
     @media (max-width: 991px)
@@ -1678,3 +1682,63 @@ footer
         +flex
         img
           +border-radius(12px)
+
+
+
+
+.collapse_card
+  background: #F2F5F7
+  +border-radius(12px)
+  margin-bottom: 12px
+  @media (max-width: 767px)
+    margin-bottom: 8px
+  &.act
+    .card_body
+      display: block
+    .card_head
+      &:before
+        +transform(rotate(-180deg))
+  .card_head
+    font-size: 22px
+    line-height: 30px
+    font-family: $font_bold
+    position: relative
+    cursor: pointer
+    padding: 20px
+    @media (max-width: 767px)
+      font-size: 16px
+      line-height: 20px
+      padding: 16px
+    &:before
+      +b_a
+      right: 20px
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 12px
+      height: 8px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232D3234' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+      +transition($transition_default)
+      @media (max-width: 767px)
+        right: 16px
+
+
+  .card_body
+    display: none
+    padding: 0 20px 20px 20px
+    .d_flex
+      +flex
+      +wrap
+      margin: 0 -5px
+      @media (max-width: 767px)
+        margin: 0 -3px
+    picture
+      width: 33.33%
+      padding: 0 5px
+      @media (max-width: 767px)
+        padding: 0 3px
+      a
+        +flex
+
+
+

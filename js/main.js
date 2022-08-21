@@ -54,6 +54,10 @@ $(document).ready(function(){
         fade: true,
     });
 
+    $('.card_head').click(function(){
+        $(this).parent().toggleClass('act');
+    });
+
 
 
 /*

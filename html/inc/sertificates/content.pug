@@ -1,0 +1,35 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+        .content
+
+            .c_row.sectificates_row
+                .col_left
+                    h1.h2 #{page.title}
+                .col_right
+                    -var cards=['Сертификаты','Свидетельства','Дипломы'];
+                    for card_item, index in cards
+                        .collapse_card
+                            .card_head=card_item
+                            .card_body
+                                .d_flex
+                                    - for(var c=1;c<=3;c++)
+                                        picture
+                                            a(href=dir+"sercificate.png")
+                                                img(src=dir+"sercificate.png")
+
+
+
+include ../kp
+
+
+
+
+
+
+
+
