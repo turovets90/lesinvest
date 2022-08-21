@@ -1185,6 +1185,10 @@ header
   +border-radius(12px)
   @media (max-width: 767px)
     padding: 16px
+
+  .h1
+    @media (min-width: 768px)
+      margin-bottom: 20px
   .kp_row
     +flex
     +wrap
@@ -1192,13 +1196,16 @@ header
 
     @media (min-width: 768px)
       margin: 0 -10px
-      .col_left
-        width: 40%
+      @media (max-width: 991px)
+        .col_left
+          width: 40%
+        .col_right
+          width: 60%
     @media (min-width: 992px)
       margin: 0 -20px
     > div
       @media (min-width: 768px)
-        width: 60%
+
         padding: 0 10px
       @media (min-width: 992px)
         width: 50%
@@ -1225,7 +1232,8 @@ header
     margin: 0 -8px
     .col
       padding: 0 8px
-      margin-bottom: 18px
+      //margin-bottom: 18px
+      margin-bottom: 12px
       @media (max-width: 767px)
         margin-bottom: 12px
       &:last-child, &:last-of-type
@@ -1467,3 +1475,62 @@ footer
     &:hover, &:focus
       color: #fff
       text-decoration: underline
+
+
+
+
+
+.page_content
+  padding-top: 15px
+  padding-bottom: 80px
+  @media (max-width: 767px)
+    margin-bottom: 02px
+
+.breadcrumb
+  +flex
+  +wrap
+  +ai-center
+  margin-bottom: 25px
+  @media (max-width: 767px)
+    margin-bottom: 20px
+  li
+    position: relative
+    padding: 0 10px
+    &:first-child
+      padding-left: 0
+    &:last-child
+      a
+        color: #7B888F
+
+    + li
+      &:before
+        +b_a
+        left: -3px
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 7px
+        height: 10px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.3999 8.7998L5.3999 4.7998L1.3999 0.799805' stroke='%237B888F' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+    a
+      color: $blue
+      font-size: 12px
+      text-decoration: none
+      font-family: $font_regular
+
+
+.catalog_title
+  font-size: 64px
+  line-height: 64px
+  font-family: $font_bold
+  @media (max-width: 1200px)
+    font-size: 55px
+    line-height: 55px
+  @media (max-width: 991px)
+    font-size: 45px
+    line-height: 45px
+  @media (max-width: 767px)
+    font-size: 42px
+    line-height: 36px
+    margin-bottom: 10px

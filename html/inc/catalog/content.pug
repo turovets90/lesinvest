@@ -1,0 +1,26 @@
+section.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") Продукция
+
+
+
+        h1.catalog_title #{page.title}
+
+        -var catalog=['Доска обрезная','Евровагонка','Вагонка Штиль','Вагонка Soft-Line','Имитация бруса','Доска пола','Топливные гранулы'];
+        .catalog
+            .catalog_list
+                for c_item, index in catalog
+                    -var count = index + 1
+                    .item
+                        a.catalog_item(href="#")
+                            .img(style="background-image:url(" + dir + "catalog1/" + count + ".png)")
+                            .catalog_item_content
+                                span.read_more Побробнее
+                                .title=c_item
+
+
+include ../kp
