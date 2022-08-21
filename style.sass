@@ -1484,7 +1484,7 @@ footer
   padding-top: 15px
   padding-bottom: 80px
   @media (max-width: 767px)
-    margin-top: 20px
+    padding-top: 20px
     padding-bottom: 30px
 
   .catalog
@@ -1539,3 +1539,142 @@ footer
     font-size: 42px
     line-height: 36px
     margin-bottom: 10px
+
+
+
+.product_img
+  img
+    +border-radius(12px)
+
+
+.c_row
+  +flex
+  +wrap
+  margin-bottom: 45px
+  @media (min-width: 992px)
+    margin-left: -10px
+    margin-right: -10px
+  &.product_row
+    padding-top: 8px
+    h1
+      margin-bottom: 20px
+      @media (max-width: 767px)
+        padding-top: 10px
+
+  &.last
+    margin-bottom: 5px
+
+  .col_left
+    width: 42%
+    @media (max-width: 991px)
+      padding-left: 10px
+      padding-right: 10px
+    @media (max-width: 991px)
+      width: 100%
+    h2, .h2
+      margin-top: 0
+      @media (max-width: 767px)
+        margin-bottom: 0
+  .col_right
+    width: 58%
+    @media (min-width: 992px)
+      padding-left: 10px
+      padding-right: 10px
+    @media (max-width: 991px)
+      width: 100%
+      padding-top: 15px
+
+
+.content
+  p
+    margin-top: 0
+    margin-bottom: 22px
+    @media (max-width: 767px)
+      margin-bottom: 8px
+  ul
+    margin-bottom: 20px
+    @media (max-width: 767px)
+      margin-bottom: 12px
+    li
+      list-style: none
+      position: relative
+      padding-left: 28px
+      &:before
+        +b_a
+        left: 8px
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 5px
+        height: 5px
+        background: $text_color
+        +border-radius(50%)
+
+
+
+
+.gost_list
+  .item
+    margin-bottom: 12px
+    .gost_item
+      background: #F2F5F7
+      +border-radius(12px)
+      +flex
+      +ai-center
+      padding: 24px
+      @media (max-width: 767px)
+        padding: 16px
+        +wrap
+
+      .txt_block
+        width: calc(100% - 148px)
+        @media (max-width: 767px)
+          order: 2
+          width: 100%
+        .gost_title
+          font-size: 22px
+          line-height: 30px
+          font-family: $font_bold
+          margin-bottom: 8px
+
+      picture
+        width: 132px
+        min-width: 132px
+        margin-left: 16px
+        @media (max-width: 767px)
+          order: 1
+          margin-left: 0
+        img
+          max-height: 82px
+          +border-radius(6px)
+
+
+
+
+
+.gallery_block
+  padding-top: 8px
+  @media (max-width: 767px)
+    margin-bottom: 22px
+  h2, .h2
+    margin-top: 0
+    @media (max-width: 991px)
+      //margin-bottom: 0
+
+  .gallery_list
+    +flex
+    +wrap
+    margin: 0 -6px
+    .item
+      margin-bottom: 12px
+      width: 33.33%
+      padding: 0 6px
+      @media (max-width: 1200px)
+        width: 50%
+      @media (max-width: 767px)
+        margin-bottom: 8px
+        width: 100%
+      picture
+        +flex
+        img
+          +border-radius(12px)
