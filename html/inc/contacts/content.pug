@@ -1,0 +1,38 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+        .content
+            h1.contacts_title #{page.title}
+
+            -var contacts=['Отдел сбыта (пиломатериалы)','Отдел лесообеспечения','Отдел кадров','Генеральный директор','Отдел снабжения','Бухгалтерия'];
+
+            .contacts_list
+                for c_item, index in contacts
+                    .item
+                        .contacts_item
+                            div
+                                .title=c_item
+                                .address 167981, Республика Коми, г. Сыктывкар, ул.1-я Промышленная, дом 72
+
+                            ul
+                                if index==0 || index==5
+                                    li
+                                        a(href="tel:+7 (800) 848-64-64") +7 (800) 848-64-64
+                                li
+                                    a(href="tel:+7 (800) 848-64-64") +7 (800) 848-64-64
+                                li
+                                    a(href="mailto:example@yandex.ru") example@yandex.ru
+
+
+            .map
+                img(src=dir+'map_image.png')
+
+
+include ../kp
+
+
+

@@ -13,7 +13,7 @@
                 .col_right
                     -var cards=['Сертификаты','Свидетельства','Дипломы'];
                     for card_item, index in cards
-                        .collapse_card
+                        .collapse_card(class=(index==0)?'act':'')
                             .card_head=card_item
                             .card_body
                                 .d_flex
