@@ -2014,3 +2014,97 @@ footer
 
 
 
+.select2-container--default
+
+  &.select2-container--below
+    .select2-selection--single
+      .select2-selection__rendered
+        color: $text_color
+
+  &.select2-container--open
+    +box-shadow( 0px 8px 24px rgba(6, 29, 40, 0.12))
+    .select2-selection--single
+      .select2-selection__arrow
+        b
+          +transform(rotate(-180deg))
+
+
+  .select2-selection--single
+    border: 0
+    height: 52px
+    +border-radius(8px)
+    @media (max-width: 767px)
+      height: 44px
+    .select2-selection__rendered
+      line-height: 52px
+      color: #7B888F
+      font-size: 16px
+      font-family: $font_regular
+      padding-left: 20px
+      @media (max-width: 767px)
+        line-height: 44px
+        font-size: 14px
+
+    .select2-selection__arrow
+      width: 20px
+      height: 20px
+      top: 0
+      bottom: 0
+      right: 16px
+      margin: auto
+      b
+        +transition($transition_default)
+        width: 12px
+        height: 8px
+        border: 0
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232D3234' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+.select2-dropdown
+  +box-shadow( 0px 8px 24px rgba(6, 29, 40, 0.12))
+  border: 0
+
+
+
+  .select2-results
+    padding: 6px
+    display: block
+
+    border-top: 1px solid #E6EBED
+
+  .select2-results__options
+
+    &::-webkit-scrollbar
+      -webkit-appearance: none
+      width: 0
+    &::-webkit-scrollbar:vertical
+      width: 4px
+      background: #E6EBED
+      +border-radius(10px)
+    &::-webkit-scrollbar-thumb
+      background: #B7BBBD
+      +border-radius(10px)
+
+    li
+      font-size: 16px
+      line-height: 20px
+      padding: 4px 14px
+      background: none !important
+      color: $text_color
+      margin-bottom: 15px
+      @media (max-width: 767px)
+        font-size: 14px
+      &:hover
+        color: $blue
+
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+  color: $blue
+
+
+
+.desc
+  &.f_20
+    @media (min-width: 1201px)
+      font-size: 20px
+      line-height: 28px
