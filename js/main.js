@@ -12,6 +12,7 @@ $(document).ready(function(){
         $(this).toggleClass('act').next().slideToggle();
     });
 
+
     if($(window).innerWidth() < 768){
         $('.main_services_list').slick({
             slidesToShow:1,
@@ -22,6 +23,7 @@ $(document).ready(function(){
             //fade: true,
         });
     }
+
 
     $('.main_catalog_list').slick({
         slidesToShow:1,
@@ -35,6 +37,17 @@ $(document).ready(function(){
         //centerPadding: "20%"
         fade: true,
     });
+
+    $('.main_catalog_item_content .prev').click(function(){
+        $('.main_catalog_list').slick('slickPrev');
+    });
+
+    $('.main_catalog_item_content .next').click(function(){
+        $('.main_catalog_list').slick('slickNext');
+    });
+
+
+
 
     $('.how_doing_slider').slick({
         slidesToShow:1,
@@ -70,6 +83,16 @@ $(document).ready(function(){
     $('.select2').select2({
         minimumResultsForSearch: -1,
     });
+
+
+
+    $('.scroll_up').click(function(){
+        $('html, body').animate({
+            scrollTop: $('body').offset().top
+        },1500);
+    });
+
+
 
     const video = document.getElementById("video");
     const play_btn = document.getElementById("play_btn");
