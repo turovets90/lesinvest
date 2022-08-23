@@ -306,11 +306,30 @@ header
   z-index: 999
   background: #fff
 
+
+.admin-bar
+  header
+    @media (min-width: 768px)
+      top: 32px
+
+
+html
+  @media (max-width: 767px)
+    margin-top: 0 !important
+
+
+@media (max-width: 767px)
+  #wpadminbar
+    display: none !important
+
 .logo
   +flex
   +ai-center
   a
     +flex
+    img
+      width: auto !important
+      height: auto !important
 .topbar
   border-bottom: 1px solid  #E6EBED
   padding: 12px 0
@@ -2112,3 +2131,8 @@ footer
     @media (min-width: 1201px)
       font-size: 20px
       line-height: 28px
+
+
+
+
+

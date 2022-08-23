@@ -18,42 +18,92 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css?<?php echo date('H:i:s');?>"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en,pl,ru', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false}, 'google_translate_element');
+        }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'lesinvest' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$lesinvest_description = get_bloginfo( 'description', 'display' );
-			if ( $lesinvest_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $lesinvest_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+<header>
+    <div class="topbar">
+        <div class="container">
+            <div class="d_flex">
+                <div class="logo">
+                    <?php the_custom_logo(); ?>
+                  </div>
+                <div class="mm_btn">
+                    <button class="hamburger"><span></span><span></span><span></span></button>
+                </div>
+                <div class="h_right">
+                    <div class="h_lang">
+                        <button class="h_lang_btn">Русский</button>
+                        <div class="h_dropdown">
+                            <ul>
+                                <li><a href="#">Русский</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">中国</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="h_contacts">
+                        <ul>
+                            <li><a href="tel:<?php the_field('telefon', 11); ?>"><?php the_field('telefon', 11); ?></a></li>
+                            <li><a href="mailto:<?php the_field('email', 11); ?>"><?php the_field('email',11); ?></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="main_menu">
+                <?php wp_nav_menu([
+                    'menu'            => 'main_menu',
+                    'container'       => '',
+                    'menu_class'      => 'nav',
+                ]); ?>
+                <div class="h_lang">
+                    <button class="h_lang_btn">Русский</button>
+                    <div class="h_dropdown">
+                        <ul>
+                            <li><a href="#">Русский</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">中国</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="h_contacts">
+                    <ul>
+                        <li><a href="tel:<?php the_field('telefon', 11); ?>"><?php the_field('telefon', 11); ?></a></li>
+                        <li><a href="mailto:<?php the_field('email', 11); ?>"><?php the_field('email',11); ?></a></li>
+                    </ul>
+                </div>
+                <?php
+                $link = get_field('knopka_svyazatsya_s_nami', 11);
+                if( $link ):
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    ?>
+                    <a class="btn_secondary" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lesinvest' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+            </div>
+        </div>
+    </nav>
+</header>
+
+
