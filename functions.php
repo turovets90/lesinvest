@@ -142,4 +142,30 @@ add_action( 'widgets_init', 'lesinvest_widgets_init' );
 require get_template_directory() . '/inc/template-tags.php';
 
 
+function getPrevNext()
+{
+    $pagelist = get_pages('sort_column=menu_order&sort_order=asc');
+    $pages = array();
+    foreach ($pagelist as $page) {
+        $pages[] += $page->ID;
+    }
+
+    $current = array_search(get_the_ID(), $pages);
+    $prevID = $pages[$current - 1];
+    $nextID = $pages[$current + 1];
+
+    if (!empty($prevID) && $prevID!='23') {
+        echo '<div class="prev">';
+        echo get_the_title($prevID);
+        echo "</div>";
+    }
+    if (!empty($nextID) && $nextID!='31') {
+        echo '<div class="next">';
+        echo get_the_title($nextID);
+        echo "</div>";
+    }
+}
+
+
+
 

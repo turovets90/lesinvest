@@ -12,7 +12,6 @@ $(document).ready(function(){
         $(this).toggleClass('act').next().slideToggle();
     });
 
-
     if($(window).innerWidth() < 768){
         $('.main_services_list').slick({
             slidesToShow:1,
@@ -24,17 +23,15 @@ $(document).ready(function(){
         });
     }
 
-
     $('.main_catalog_list').slick({
         slidesToShow:1,
         slidesToScroll: 1,
         dots: false,
         arrows: true,
-        infinite: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
         speed: 1500,
-        //centerMode: true,
-        //focusOnSelect: true,
-        //centerPadding: "20%"
         fade: true,
     });
 
@@ -46,19 +43,15 @@ $(document).ready(function(){
         $('.main_catalog_list').slick('slickNext');
     });
 
-
-
-
     $('.how_doing_slider').slick({
         slidesToShow:1,
         slidesToScroll: 1,
         dots: true,
         arrows: true,
-        infinite: false,
+        infinite: true,
         speed: 1500,
-        //centerMode: true,
-        //focusOnSelect: true,
-        //centerPadding: "20%"
+        autoplay: true,
+        autoplaySpeed: 5000,
         fade: true,
     });
 
@@ -79,12 +72,9 @@ $(document).ready(function(){
         //fade: true,
     });
 
-
     $('.select2').select2({
         minimumResultsForSearch: -1,
     });
-
-
 
     $('.scroll_up').click(function(){
         $('html, body').animate({
@@ -93,9 +83,21 @@ $(document).ready(function(){
     });
 
 
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if(event.detail.contactFormId=="6" || event.detail.contactFormId=="200"){
+            $('.kp_content').addClass('success');
+        }
+    }, false );
 
-    const video = document.getElementById("video");
-    const play_btn = document.getElementById("play_btn");
+    $('.kp_content .btn_reset').click(function(){
+        $('.kp_content').removeClass('success');
+        //$('form#wpcf7-f6-o1').resetForm();
+        $('.wpcf7-response-output').hide();
+    });
+
+
+    var video = document.getElementById("video");
+    var play_btn = document.getElementById("play_btn");
 
     function togglePlay() {
         if (video.paused || video.ended) {
@@ -104,18 +106,15 @@ $(document).ready(function(){
             video.pause();
         }
     }
-
-    play_btn.addEventListener("click", togglePlay);
-    video.addEventListener("playing", function () {
-        play_btn.style.opacity = 0;
-    });
-    video.addEventListener("pause", function () {
-        play_btn.style.opacity = 1;
-    });
-
-
-
-
+    if(video){
+        play_btn.addEventListener("click", togglePlay);
+        video.addEventListener("playing", function () {
+            play_btn.style.opacity = 0;
+        });
+        video.addEventListener("pause", function () {
+            play_btn.style.opacity = 1;
+        });
+    }
 
 
 

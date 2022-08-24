@@ -24,6 +24,7 @@
 
 @import "./css/slick-less"
 @import "./css/select2"
+@import "./css/fancybox"
 
 =b_a()
   content: ''
@@ -456,13 +457,14 @@ html
 
     ul
       li
-        a
+        a, span
           font-size: 14px
           line-height: 16px
           text-decoration: none
           color: $text_color
           display: inline-block
           padding: 5px 15px
+          cursor: pointer
           &:hover, &:focus
             color: $blue
 
@@ -713,10 +715,10 @@ html
     +wrap
     margin: 0 -12px
   @media (max-width: 767px)
-    margin-right: -12px
+
     .slick-list
       margin-bottom: 25px
-      padding-right: 18px
+
   .item
     width: 50%
     padding: 0 12px
@@ -725,7 +727,7 @@ html
       width: 100%
     @media (max-width: 767px)
       margin-bottom: 0
-      padding-left: 0
+      padding: 0
 
     .main_services_item
       background-position: center
@@ -855,7 +857,7 @@ html
     width: 100%
     +flex
     bottom: 0
-    padding-right: 30px
+    //padding-right: 30px
     li
       flex-grow: 1
       width: auto
@@ -1207,6 +1209,7 @@ html
   background: #F2F5F7
   padding: 40px
   +border-radius(12px)
+
   @media (max-width: 767px)
     padding: 16px
 
@@ -1246,6 +1249,33 @@ html
 
   .desc
     color: #7B888F
+
+
+
+  &.success
+    @media (min-width: 768px)
+      .col_left
+        width: 60%
+      .col_right
+        width: 40%
+    .success_txt
+      display: block
+    .default_txt, .kp_form
+      display: none
+
+
+  .success_txt
+    font-size: 52px
+    line-height: 46px
+    font-family: $font_bold
+    display: none
+
+    p
+      margin-top: 0
+      margin-bottom: 22px
+    span
+      color: #7B888F
+
 
 
 
@@ -1528,21 +1558,21 @@ footer
     &:first-child
       padding-left: 0
     &:last-child
-      a
+      a, span
         color: #7B888F
 
     + li
       &:before
         +b_a
         left: -3px
-        top: 0
+        top: 1px
         bottom: 0
         margin: auto
         width: 7px
         height: 10px
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.3999 8.7998L5.3999 4.7998L1.3999 0.799805' stroke='%237B888F' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
 
-    a
+    a, span
       color: $blue
       font-size: 12px
       text-decoration: none
@@ -1630,9 +1660,7 @@ footer
       &:before
         +b_a
         left: 8px
-        top: 0
-        bottom: 0
-        margin: auto
+        top: 11px
         width: 5px
         height: 5px
         background: $text_color
@@ -2135,4 +2163,154 @@ footer
 
 
 
+.codedropz-upload-handler
+  border: 1px dashed #97C8E1
+  +border-radius(8px)
+  .codedropz-upload-container
+    .codedropz-upload-inner
+      > span
+        display: none
+      .codedropz-btn-wrap
+        .cd-upload-btn
+          color: $blue
+          font-size: 16px
+          position: relative
+          font-family: $font_medium
+          padding-left: 25px
+          &:before
+            +b_a
+            left: 0
+            top: 0
+            bottom: 0
+            margin: auto
+            width: 20px
+            height: 20px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M3.6 14.0352C2.63521 13.3625 2 12.2168 2 10.9167C2 8.96369 3.43321 7.35941 5.26379 7.18281C5.63825 4.81011 7.6162 3 10 3C12.3838 3 14.3617 4.81011 14.7362 7.18281C16.5668 7.35941 18 8.96369 18 10.9167C18 12.2168 17.3648 13.3625 16.4 14.0352M6.8 13.8333L10 10.5M10 10.5L13.2 13.8333M10 10.5V18' stroke='%2397C8E1' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
 
+
+  .dnd-upload-counter
+    display: none
+
+
+.dnd-upload-status .dnd-upload-details .dnd-progress-bar
+  display: none
+
+.dnd-upload-status .dnd-upload-details .name span
+  font-size: 16px
+  color: $text_color
+
+.dnd-upload-status .dnd-upload-details .name em
+  display: none
+.dnd-upload-status .dnd-upload-image
+  border: 0
+  width: 20px
+  height: 20px
+  border-radius: 0
+  span
+    &.file
+      width: 20px
+      height: 20px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.33203 18.3327H12.6654C14.0655 18.3327 14.7656 18.3327 15.3003 18.0602C15.7707 17.8205 16.1532 17.4381 16.3929 16.9677C16.6654 16.4329 16.6654 15.7328 16.6654 14.3327V6.66602L11.6654 1.66602H7.33203C5.9319 1.66602 5.23183 1.66602 4.69705 1.9385C4.22665 2.17818 3.8442 2.56063 3.60451 3.03104C3.33203 3.56582 3.33203 4.26588 3.33203 5.66602V14.3327C3.33203 15.7328 3.33203 16.4329 3.60451 16.9677C3.8442 17.4381 4.22665 17.8205 4.69705 18.0602C5.23183 18.3327 5.9319 18.3327 7.33203 18.3327ZM5.83203 8.33268C5.83203 7.87245 6.20513 7.49935 6.66536 7.49935H8.33203C8.79227 7.49935 9.16536 7.87245 9.16536 8.33268C9.16536 8.79292 8.79227 9.16602 8.33203 9.16602H6.66536C6.20513 9.16602 5.83203 8.79292 5.83203 8.33268ZM5.83203 11.666C5.83203 11.2058 6.20513 10.8327 6.66536 10.8327H13.332C13.7923 10.8327 14.1654 11.2058 14.1654 11.666C14.1654 12.1263 13.7923 12.4993 13.332 12.4993H6.66536C6.20513 12.4993 5.83203 12.1263 5.83203 11.666ZM5.83203 14.9993C5.83203 14.5391 6.20513 14.166 6.66536 14.166H13.332C13.7923 14.166 14.1654 14.5391 14.1654 14.9993C14.1654 15.4596 13.7923 15.8327 13.332 15.8327H6.66536C6.20513 15.8327 5.83203 15.4596 5.83203 14.9993ZM11.626 6.6661C11.3965 6.64495 11.185 6.5403 11.0372 6.37469C10.8893 6.20908 10.8169 5.99576 10.8356 5.78068V2.49943L14.9993 6.6661H11.626Z' fill='%2397C8E1'/%3e%3c/svg%3e ")
+
+.dnd-upload-status .dnd-upload-details .remove-file
+  top: 13px
+.dnd-upload-status
+  .dnd-upload-details
+    .remove-file
+      span
+        &:after
+          width: 20px
+          height: 20px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M16 4L4 16M4 4L16 16' stroke='%23007AB8' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+.codedropz-upload-wrapper
+  margin-bottom: 5px
+
+
+.wpcf7-not-valid-tip
+  font-size: 14px
+
+.wpcf7 form .wpcf7-response-output
+  font-size: 14px
+  margin: 20px 0 0
+  line-height: 1.2
+
+
+
+
+#map
+  width: 100%
+  height: 600px
+  +border-radius(12px)
+  overflow: hidden
+  @media (max-width: 1200px)
+    height: 400px
+  @media (max-width: 767px)
+    height: 300px
+  @media (max-width: 575px)
+    height: 220px
+
+
+
+.all_pages
+  > li
+    padding-left: 0
+    &:before
+      display: none
+
+  a
+    text-decoration: none
+    color: $blue
+    &:hover, &:focus
+      text-decoration: underline
+      color:  $blue_hover
+
+  ul
+    margin-bottom: 0
+
+
+
+.error404
+  .search_form
+    margin-bottom: 20px
+.search_form
+  width: 100%
+  border: 1px solid $blue
+  +border-radius(8px)
+  .form_control
+    +border-radius(8px)
+
+  +flex
+
+
+
+.skiptranslate
+  +flex
+  color: #fff !important
+  font-size: 0 !important
+  position: relative !important
+  padding-right: 13px
+  > div
+    display: flex !important
+  span
+    display: none !important
+
+
+.goog-te-gadget .goog-te-combo
+  border: 0
+  margin: 0 !important
+  font-size: 14px
+  font-family: $font_medium !important
+  appearance: none
+  -webkit-appearance: none
+
+
+
+.skiptranslate
+  display: none !important
+
+
+.translated-ltr
+  body
+    top: 0 !important

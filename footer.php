@@ -67,9 +67,13 @@
 <?php wp_footer(); ?>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/select2.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.fancybox.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/google-translate.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
 
 </body>
 </html>

@@ -1,4 +1,8 @@
-<?php get_header();?>
+<?php
+/*
+ Template name: Сертификаты
+ */
+get_header();?>
 <div class="page_content">
     <div class="container">
         <?php get_template_part('inc/breadcrumb'); ?>
@@ -19,7 +23,7 @@
                                     <div class="d_flex">
                                         <?php while( have_rows('spisok_izobrazhenij') ): the_row(); ?>
                                             <picture>
-                                                <a href="<?php the_sub_field('kartinka'); ?>">
+                                                <a href="<?php the_sub_field('kartinka'); ?>" data-fancybox="gallery_<?php echo $i;?>">
                                                     <img src="<?php the_sub_field('kartinka'); ?>"/>
                                                 </a>
                                             </picture>
