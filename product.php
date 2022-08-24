@@ -64,7 +64,7 @@ get_header();?>
                     <div class="gallery_list">
                         <?php while( have_rows('gotovaya_produkcziya_-_galereya') ): the_row(); ?>
                             <div class="item">
-                                <picture><a href="<?php the_sub_field('kartinka'); ?>"><img src="<?php the_sub_field('kartinka'); ?>"/></a></picture>
+                                <picture><a href="<?php the_sub_field('kartinka'); ?>" data-fancybox="gallery"><img src="<?php the_sub_field('kartinka'); ?>"/></a></picture>
                             </div>
                         <?php endwhile; ?>
                     </div>

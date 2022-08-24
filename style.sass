@@ -1269,6 +1269,15 @@ html
     line-height: 46px
     font-family: $font_bold
     display: none
+    @media (max-width: 1200px)
+      font-size: 45px
+      line-height: 45px
+    @media (max-width: 991px)
+      font-size: 30px
+      line-height: 30px
+    @media (max-width: 767px)
+      font-size: 24px
+      line-height: 26px
 
     p
       margin-top: 0
@@ -1327,6 +1336,7 @@ form
   height: 52px
   width: 100%
   padding-left: 20px
+  padding-right: 20px
   color: $text_color
   font-size: 16px
   font-family: $font_regular
@@ -1334,6 +1344,7 @@ form
   @media (max-width: 767px)
     height: 44px
     padding-left: 12px
+    padding-right: 12px
     font-size: 14px
   &::-webkit-input-placeholder
     color: #7B888F
@@ -1732,6 +1743,9 @@ footer
         width: 100%
       picture
         +flex
+        +j-center
+        a
+          +flex
         img
           +border-radius(12px)
 
@@ -2177,6 +2191,8 @@ footer
           position: relative
           font-family: $font_medium
           padding-left: 25px
+          @media (max-width: 767px)
+            font-size: 14px
           &:before
             +b_a
             left: 0
@@ -2198,6 +2214,8 @@ footer
 .dnd-upload-status .dnd-upload-details .name span
   font-size: 16px
   color: $text_color
+  @media (max-width: 767px)
+    font-size: 14px
 
 .dnd-upload-status .dnd-upload-details .name em
   display: none

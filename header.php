@@ -26,7 +26,6 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-
 <header>
     <div class="topbar">
         <div class="container">
@@ -90,7 +89,6 @@
                     ?>
                     <a class="btn_secondary" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
                 <?php endif; ?>
-
             </div>
         </div>
     </nav>

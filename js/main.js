@@ -7,10 +7,12 @@ $(document).ready(function(){
 
         return false;
     });
-
+    /*
     $('.faq_item_header').click(function(){
         $(this).toggleClass('act').next().slideToggle();
     });
+    */
+
 
     if($(window).innerWidth() < 768){
         $('.main_services_list').slick({
@@ -78,7 +80,7 @@ $(document).ready(function(){
 
     $('.scroll_up').click(function(){
         $('html, body').animate({
-            scrollTop: $('body').offset().top
+            scrollTop: $('html').offset().top
         },1500);
     });
 
